@@ -1,25 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
-function App() {
+import { ThemeProvider } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Home from "./containers/Home";
+import Register from "./containers/Register";
+import Login from "./containers/Login";
+import Detail from "./containers/Detail";
+import theme from "./themes/theme";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute loginOnly={false}>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="register"
+            element={
+              <ProtectedRoute loginOnly={false}>
+                <Register />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <ProtectedRoute loginOnly={false}>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="detail/:plan"
+            element={
+              <ProtectedRoute loginOnly={true}>
+                <Detail />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <Footer></Footer>
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
