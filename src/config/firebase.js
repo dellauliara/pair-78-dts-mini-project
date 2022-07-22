@@ -6,8 +6,8 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
- // apiKey: "AIzaSyArg2aWaCL8UClPaD2tXyeh1JJUrI9ZpoE",
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  apiKey: "AIzaSyArg2aWaCL8UClPaD2tXyeh1JJUrI9ZpoE",
+  //apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "my-movie-dellauliara.firebaseapp.com",
   projectId: "my-movie-dellauliara",
   storageBucket: "my-movie-dellauliara.appspot.com",

@@ -79,11 +79,12 @@ const Login = () => {
                     >
                         Sign In
                     </Button>
-                    <Grid container sx={{mb:35}}>
+                    <Grid container sx={{mb:48}}>
                         <Grid item>
-                            <Link to="/register">
+                            <Typography color='secondary' ><Link to="/register" >
                                 {"Don't have an account? Sign Up"}
-                            </Link>
+                            </Link></Typography>
+                            
                         </Grid>
                         <Grid item sx={{marginLeft:15}}>
                             <Link to="/">

@@ -31,6 +31,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            
           </Route>
           <Route
             path="register"
